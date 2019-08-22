@@ -1,23 +1,69 @@
 // Find the maximum
+function maxOfTwoNumbers (x, y) {
+  if (x > y) {
+    console.log(x)
+    return x
+  } else if (y > x) {
+    console.log(y)
+    return y
+  } else if (y === x) {
+    return y
+  }
+}
+console.log("max two number 99, 2")
+maxOfTwoNumbers(99,2)
+console.log("------------------")
 
 // Finding Longest Word
 var words = [
-  'mystery',
-  'brother',
-  'aviator',
-  'crocodile',
-  'pearl',
-  'orchard',
-  'crackpot'
+  "foo"
 ];
+
+function findLongestWord (obj) {
+    if (obj.length <= 0) {
+      return null
+    } else {
+      var longestWord = obj.reduce(function(longest, currentWord) {
+      return currentWord.length > longest.length ? currentWord : longest;
+    }, "");
+    console.log(longestWord)
+    }
+    return longestWord
+}
+console.log("Find Longest Word")
+findLongestWord(words)
+console.log("------------------")
+
+
 
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray (obj) {
+    return obj.reduce((x,y) => x + y, 0)
+}
+
+console.log("Calculating sum of array")
+sumArray(numbers)
+console.log("------------------")
+
 // Calculate the Average
 
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+var numbersAvg = [-2,0,2];
+
+function averageNumbers(obj) {
+  if (obj.length > 0) {
+    let y = obj.reduce((x,y) => x + y, 0) / obj.length
+    console.log(y)
+    return y
+  } else {
+    return null
+  }
+}
+console.log("Calculate the Average")
+averageNumbers(numbersAvg)
+console.log("------------------")
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +78,19 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength (obj) {
+  if (obj.length > 0) {
+    let avg = obj.join('').length / obj.length
+    console.log(avg)
+    return avg
+  } else {
+    return null
+  }
+}
+console.log("Array of Strings")
+averageWordLength(wordsArr)
+console.log("------------------")
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +107,15 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (obj) {
+  return obj.reduce((x,y) => 
+    x.includes(y) ? x : [...x, y]
+  , [])
+}
+console.log("Unique Arrays")
+uniquifyArray(wordsUnique)
+console.log("------------------")
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +127,19 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(arr, word) {
+  if (arr.includes(word)) {
+    console.log(true)
+    return true
+  } else {
+    console.log(false)
+    return false
+  }
+}
+console.log("Finding Elements")
+doesWordExist(wordsFind, "machine")
+console.log("------------------")
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +155,25 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr, word) {
+  if (arr.length) {
+    let count = 0
+    for (i = 0 ; i < arr.length ; i++) {
+      if (arr[i] === word) {
+        count++
+        console.log(count)
+      }
+    }
+    return count
+  } else if (arr.length === 0) {
+    return 0
+  }
+}
+console.log("Counting Repetition")
+howManyTimes(wordsCount, 'matter')
+console.log("------------------")
+
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +198,19 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+console.log(matrix[0].length)
+
+function greatestProduct (arr) {
+  // goes through each nested array
+  for (i=0 ; i < arr.length ; i++) {
+    // for each nested array, go right
+    for (j=0 ; j < arr[i].length;j+=4) {
+      let sum = arr[i][j] * arr[i][j+1] * arr[i][j+2] * arr[i][j+3] 
+      console.log(sum)
+    }
+  }
+}
+
+console.log("Bonus Below")
+greatestProduct(matrix)
